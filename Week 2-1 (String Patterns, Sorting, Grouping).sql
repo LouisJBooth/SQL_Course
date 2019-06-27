@@ -55,7 +55,7 @@ CREATE TABLE LOCATIONS (
 
 -- 2. The primary key for DEPARTMENTS is not unique, DEPT_ID_DEP holds the value of 5 for two separate rows.
 -- A better primary key for this table is LOC_ID, which is unique to each location
--- Could use multiple attributes for primary key
+-- Perhaps use multiple attributes for primary key
 
 
 
