@@ -1,0 +1,50 @@
+-- Drop the PETSALE table in case it exists
+DROP TABLE PETSALE;
+-- Create the PETSALE table 
+CREATE TABLE PETSALE (
+	ID INTEGER PRIMARY KEY NOT NULL,
+	ANIMAL VARCHAR(255),
+	QUANTITY INTEGER,
+	SALEPRICE DECIMAL(6,2),
+	SALEDATE DATE) ;
+-- Insert sample data into PETSALE table
+INSERT INTO PETSALE VALUES 
+	(1,'Cat',9,450.09,'2018-05-29'),
+	(2,'Dog',3,666.66,'2018-06-01'),
+	(3,'Dog',1,100.00,'2018-06-04'),
+	(4,'Parrot',2,50.00,'2018-06-04'),
+	(5,'Dog',1,75.75,'2018-06-10'),
+	(6,'Hamster',6,60.60,'2018-06-11'),
+	(7,'Cat',1,44.44,'2018-06-11'),
+	(8,'Goldfish',24,48.48,'2018-06-14'),
+	(9,'Dog',2,222.22,'2018-06-15') ;
+
+-- Built-in Functions
+-- Sum of SALEPRICE
+SELECT SUM(SALEPRICE) FROM PETSALE ;
+-- Sum of SALEPRICE, assigned name: SUM_OF_SALEPRICE
+SELECT SUM(SALEPRICE) AS SUM_OF_SALEPRICE FROM PETSALE ;
+-- Maximum value in QUANTITY
+SELECT MAX(QUANTITY) FROM PETSALE ;
+-- Average SALEPRICE
+SELECT AVG(SALEPRICE) FROM PETSALE ;
+-- Average price per dog
+SELECT AVG(SALEPRICE / QUANTITY) FROM PETSALE WHERE ANIMAL = 'Dog' ;
+-- Round SALEPRICE
+SELECT ROUND(SALEPRICE) FROM PETSALE ;
+-- Number of characters for each entry in ANIMAL
+SELECT LENGTH(ANIMAL) FROM PETSALE ;
+-- Uppercase ANIMAL values
+SELECT UCASE(ANIMAL) FROM PETSALE ;
+-- Uppercase distinct values in ANIMAL
+SELECT DISTINCT(UCASE(ANIMAL)) FROM PETSALE ;
+--  Select all cats, regardless of original casing of characters
+SELECT * FROM PETSALE WHERE LCASE(ANIMAL) = 'cat' ;
+-- Day of each cat sale
+SELECT DAY(SALEDATE) FROM PETSALE WHERE ANIMAL = 'Cat' ;
+-- Number of sales occurring in May
+SELECT COUNT(*) FROM PETSALE WHERE MONTH(SALEDATE)='05' ;
+-- Adding 3 days to each date in SALEDATE
+SELECT (SALEDATE + 3 DAYS) FROM PETSALE ;
+-- Difference between today's date and values in SALEDATE
+SELECT (CURRENT DATE - SALEDATE) FROM PETSALE ;
