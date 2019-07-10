@@ -1,2 +1,2 @@
 # SQL_Course
-IBM SQL for Data Science Course
+IBM Databases and SQL for Data Science Course
